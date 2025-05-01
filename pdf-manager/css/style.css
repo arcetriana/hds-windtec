@@ -1,0 +1,165 @@
+/* css/style.css */
+
+:root {
+  --primary-color: #00BFFF;
+  --add-color: #28a745;
+  --delete-color: #dc3545;
+  --selected-overlay: rgba(0,0,0,0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  padding: 20px;
+}
+
+#pdf-manager {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Header */
+.header {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+/* Page title */
+.page-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.logo {
+  height: 60px;
+  margin-right: 12px;
+}
+
+/* Search */
+.search-container input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Admin toggle */
+.admin-toggle {
+  text-align: right;
+  margin: 15px 0;
+}
+.admin-toggle button {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Gallery */
+.pdf-gallery {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0;
+}
+.pdf-gallery li {
+  position: relative;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.pdf-gallery li:hover {
+  transform: translateY(-2px);
+}
+
+/* Larger thumbnails */
+.pdf-thumb {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Title */
+.pdf-title {
+  padding: 12px;
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+/* Select circle */
+.select-circle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  background: transparent;
+  display: none;
+  z-index: 2;
+  transition: background 0.2s;
+}
+/* Show circle in editing mode */
+li.editing .select-circle {
+  display: block;
+}
+/* Darken card when selected */
+li.selected {
+  background: var(--selected-overlay);
+}
+/* Fill circle when selected */
+li.selected .select-circle {
+  background: var(--primary-color);
+}
+
+/* Admin controls */
+.admin-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.admin-controls button {
+  border: none;
+  padding: 10px 16px;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+/* Primary button for Select All */
+#btnSelectAll {
+  background: var(--primary-color);
+}
+#btnDeleteSelected {
+  background: var(--delete-color);
+}
+#btnAdd {
+  background: var(--add-color);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .pdf-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}

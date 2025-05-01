@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Hojas de seguridad – Bodega de químicos</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js';
+  </script>
+</head>
+<body>
+  <div id="pdf-manager">
+    <header class="header">
+      👤 <span id="currentUser">Bienvenido</span>
+    </header>
+
+    <div class="page-header">
+      <img src="images/HG-Logo-en-limpio.png" alt="HG Windtec" class="logo">
+      <h1>Hojas de seguridad – Bodega de químicos</h1>
+    </div>
+
+    <div class="search-container">
+      <input id="searchInput" placeholder="🔍 Buscar PDF..." oninput="filterPdfs()">
+    </div>
+
+    <div id="adminToggle" class="admin-toggle" style="display:none;">
+      <button id="btnToggleEdit">✏️ Editar</button>
+      <button id="btnToggleHistory">Historial</button>
+    </div>
+
+    <ul id="pdfList" class="pdf-gallery"></ul>
+
+    <div id="adminControls" class="admin-controls" style="display:none;">
+      <button id="btnSelectAll">Seleccionar todo</button>
+      <button id="btnDeleteSelected">Eliminar seleccionados</button>
+      <button id="btnAdd">➕ Agregar PDF</button>
+      <input type="file" id="uploadPdf" accept="application/pdf" multiple style="display:none">
+    </div>
+
+    <div id="historyContainer" class="history-container" style="display:none;">
+      <h2>Historial de cambios</h2>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
